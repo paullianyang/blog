@@ -1,0 +1,39 @@
+{{!< default}}
+
+        <div class="container clearfix">
+          <main role="main" class="content">
+              <div class="tag-title">
+                <p>All articles tagged as:</p>
+                <h1>{{tag.name}}</h1>
+              </div>
+
+              {{#foreach posts}}  
+              <article class="{{post_class}} post">
+                <h2><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
+                <footer class="post-info">Posted on <span class="post-meta"><time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="Do MMMM YYYY"}}</time> {{tags separator=", " prefix="Tagged in "}}</span></footer>
+                
+                <p>{{excerpt characters="600"}}&hellip;</p>
+                
+                <a href="{{url}}" title="{{title}}">Read more &raquo;</a>
+              </article>
+              {{/foreach}}
+
+              {{pagination}}
+             
+          </main>
+          <aside class="author">
+            <a class="btn" href="{{@blog.url}}" title="Back to homepage">&laquo; Back to home</a>
+            <img class="profile-image" src="{{asset "img/cycling.jpg"}}" alt="" />
+            <p class="name">by <strong>Paul Yang</strong></p>
+	    <p <span>&#9993;</span> <a href="mailto:blog@paullianyang.com">blog@paullianyang.com</a></p>
+
+            <!-- LEAVE THIS OUT FOR NOW - PY
+		<p class="address">San Francisco</p>
+            	<p class="link"><a href="http://paullianyang.com" title="Paul Yang - Data Scientist">paullianyang.com</a></p>
+                <ul class="social">
+                  <li><a class="icon-linkedin" href="https://www.linkedin.com/in/paullianyang" title="Find me on LinkedIn"></a></li>
+                </ul>
+	    --!>
+
+          </aside>
+        </div>
